@@ -32,8 +32,6 @@ list<edge> KRUSKAL(const graph& G, const edge_array<int>& cost, node_array<NodeI
 		node s = G.source(e);		//starting node of edge e
 		node t = G.target(e);		//ending node of edge e
 
-		G.print_edge(e);
-
 		if (s == t) continue;
 
 		if (!nodeInfo[s].visited && !nodeInfo[t].visited ) //if both source and target have not been visited before
@@ -111,14 +109,22 @@ list<edge> KRUSKAL(const graph& G, const edge_array<int>& cost, node_array<NodeI
 
 int main() {
 	graph G;
-	random_graph(G, 1000, 6000);
+	//grid_graph(G, 400); //1st test case
+	
+	/*
+	random_graph(G, 4000, 28816); //2nd test case
 	Make_Connected(G);
+	*/
 
 	edge_array<int> cost(G);
 	random_source S;
 	edge e;
 	forall_edges(e, G) {
 		cost[e] = (S() % 9991) +10;
+		/*
+		G.print_edge(e);
+		std::cout << " with cost :" << cost[e] << "\n";
+		*/
 	}
 
 	node_array<NodeInfo> nodeInfo(G);
@@ -130,12 +136,13 @@ int main() {
 	}
 
 	list<edge> mst = KRUSKAL(G, cost, nodeInfo);
-	std::cout << "\n\n";
 	int counter = 0;
 	forall(e, mst) {
 		counter++;
+		/*
 		G.print_edge(e);
-		std::cout << " with cost " << cost[e] << " \n";
+		std::cout << " with cost :" << cost[e] << "\n";
+		*/
 	}
 
 	std::cout << "number of nodes : " << G.number_of_nodes() << "\n";
