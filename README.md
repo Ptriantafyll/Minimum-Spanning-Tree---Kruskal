@@ -1,6 +1,8 @@
-# Minimum-Spanning-Tree---Kruskal
-
+Contents:
+~main.cpp
 ~Makeflie -> (make->compile), (make clean -> delete program) & (make run -> run program)
+
+In order for the program to run, both files must be in the same folder and the folder cannot have another file with a main function in it
 
 Running:
 ~main.cpp -> source code
