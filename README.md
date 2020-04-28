@@ -1,3 +1,5 @@
+Modification of Kruskal algorithm with lists of nodes
+
 Contents:
 ~main.cpp
 ~Makeflie -> (make->compile), (make clean -> delete program) & (make run -> run program)
